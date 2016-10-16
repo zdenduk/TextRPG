@@ -4,7 +4,6 @@ import com.company.domain.Item;
 import com.company.domain.Location;
 import com.company.domain.Option;
 import com.company.domain.Player;
-import com.company.domain.impl.PotionImpl;
 
 import java.util.Scanner;
 
@@ -76,7 +75,7 @@ public class GameUI {
         input--;
         if (player.getItems().get(input).getItemType().getCaption().equals("potion")) {
             player.removeItem(player.getItems().get(input));
-            player.setHp(); /* TODO somehow get healing value */
+            /* TODO somehow get healing value */
         }
     }
 }
