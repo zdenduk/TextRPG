@@ -4,7 +4,7 @@ import com.company.domain.Item;
 import com.company.domain.Location;
 import com.company.domain.Option;
 import com.company.domain.Player;
-import com.sun.org.apache.xpath.internal.SourceTree;
+import com.company.domain.impl.PotionImpl;
 
 import java.util.Scanner;
 
@@ -37,11 +37,16 @@ public class GameUI {
 
     private Location DoMove(Location location, Player player) {
         Scanner sc = new Scanner(System.in);
-
+        int counter = 1;
         int input = sc.nextInt() - 1;
         if (input == -1) {
             System.out.println("I have these following items:");
-            player.getItems().forEach((item) -> System.out.println(item.getName()));
+            for (Item item : player.getItems()) {
+                System.out.println(counter + ") " + item.getName());
+                counter++;
+            }
+            useItem(player);
+
             return location;
         } else if (location.getOptions().get(input).getLocation() == null) {
             pickItem(location, player, input);
@@ -64,5 +69,15 @@ public class GameUI {
 
     }
 
+    private void useItem(Player player) {
+        System.out.println("Which item do I use?");
+        Scanner sc = new Scanner(System.in);
+        int input = sc.nextInt();
+        input--;
+        if (player.getItems().get(input).getItemType().getCaption().equals("potion")) {
+            player.removeItem(player.getItems().get(input));
+            player.setHp(); /* TODO somehow get healing value */
+        }
+    }
 }
 

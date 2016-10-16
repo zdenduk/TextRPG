@@ -69,4 +69,12 @@ public class PlayerImpl implements Player {
         this.location = location;
     }
 
+    @Override
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public void removeItem(Item item){
+        items.remove(item);
+    }
 }

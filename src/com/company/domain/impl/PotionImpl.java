@@ -10,8 +10,7 @@ public class PotionImpl extends ItemImpl {
 
     private int hpAdd;
 
-    public int getAttackDamage() {
+    public int getHealingVal() {
         return hpAdd;
     }
-
 }

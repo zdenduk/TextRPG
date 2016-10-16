@@ -15,4 +15,7 @@ public interface Player {
     List<Item> getItems();
     void addItem(Item item);
     void addItem(String name, ItemType type);
+    void removeItem(Item item);
+
+    void setHp(int hp);
 }
