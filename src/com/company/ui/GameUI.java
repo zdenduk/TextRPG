@@ -18,8 +18,6 @@ public class GameUI {
         presentLocation(location, player);
         Location newLocation = DoMove(location, player);
         play(newLocation, player);
-        /*Option selectedOption = DoMove(location, player);
-        play(selectedOption.getLocation(), player);*/
     }
 
     private void presentLocation(Location location, Player player) {
@@ -38,7 +36,7 @@ public class GameUI {
         System.out.println(input);
         if (location.getOptions().get(input).getLocation() == null) {
             pickItem(location, player, input);
-            return location; /* nějak kurva zůstat v stejný lokaci */
+            return location;
         } else {
             return location.getOptions().get(input).getLocation();
         }
