@@ -1,9 +1,6 @@
 package com.company.domain.impl;
 
-import com.company.domain.Item;
-import com.company.domain.Location;
-import com.company.domain.Option;
-import com.company.domain.Player;
+import com.company.domain.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,8 +55,8 @@ public class PlayerImpl implements Player {
     }
 
     @Override
-    public void addItem(String name, int durability, int ad) {
-        addItem(new ItemImpl(durability, ad, name));
+    public void addItem(String name, ItemType type) {
+        addItem(new ItemImpl(name, type));
     }
 
     @Override

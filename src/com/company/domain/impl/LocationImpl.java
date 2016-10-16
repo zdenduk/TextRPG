@@ -1,6 +1,7 @@
 package com.company.domain.impl;
 
 import com.company.domain.Item;
+import com.company.domain.ItemType;
 import com.company.domain.Location;
 import com.company.domain.Option;
 
@@ -32,8 +33,8 @@ public class LocationImpl implements Location {
     }
 
     @Override
-    public void addItem(int durability, int ad, String name) {
-        addItem(new ItemImpl(durability, ad, name));
+    public void addItem(String name, ItemType type) {
+        addItem(new ItemImpl(name, type));
     }
 
     @Override

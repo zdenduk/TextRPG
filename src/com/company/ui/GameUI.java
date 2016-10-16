@@ -16,8 +16,10 @@ public class GameUI {
             location.getItems().forEach((item) -> System.out.println("There is " + item.getName()));
         }
         presentLocation(location, player);
-        Option selectedOption = DoMove(location, player);
-        play(selectedOption.getLocation(), player);
+        Location newLocation = DoMove(location, player);
+        play(newLocation, player);
+        /*Option selectedOption = DoMove(location, player);
+        play(selectedOption.getLocation(), player);*/
     }
 
     private void presentLocation(Location location, Player player) {
@@ -29,22 +31,22 @@ public class GameUI {
         }
     }
 
-    private Option DoMove(Location location, Player player) {
+    private Location DoMove(Location location, Player player) {
         Scanner sc = new Scanner(System.in);
 
-        int num = sc.nextInt() - 1;
-
-        if (location.getOptions().get(num).getLocation()==null) {
-            pickItem(location, player, num);
-            return location.getOptions().get(num - 1);
+        int input = sc.nextInt() - 1;
+        System.out.println(input);
+        if (location.getOptions().get(input).getLocation() == null) {
+            pickItem(location, player, input);
+            return location; /* nějak kurva zůstat v stejný lokaci */
         } else {
-            return location.getOptions().get(num);
+            return location.getOptions().get(input).getLocation();
         }
     }
 
     private void pickItem(Location location, Player player, int a) {
         player.addItem(location.getOptions().get(a).getItem());
-        location.removeOption(location.getOptions().get(2));
+        location.removeOption(location.getOptions().get(a));
     }
 
 }

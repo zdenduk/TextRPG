@@ -24,21 +24,34 @@ public class Main {
     }
 
     private static Location createGame() {
-        Location startingLocation = new LocationImpl("Starting location");
-        Location leftLocation = new LocationImpl("You are in the left room");
-        Location rightLocation = new LocationImpl("You are in the right room");
+
+        Location startingLocation = new LocationImpl("Where am I,");
+        Location forest = new LocationImpl("That's a really deep forest...");
+        Location tower = new LocationImpl("I almost thought these stairs would never end.");
+        Location castle = new LocationImpl("Whoa... This castle is huge.");
+        Location burrow = new LocationImpl("Hopefully there won't be any animals.");
+
         Item bfsword = new WeaponImpl("B.F. Sword", WEAPON, 50);
         Item pickaxe = new WeaponImpl("Pickaxe", WEAPON, 25);
         Item healingPotion = new PotionImpl("Healing Potion", POTION, 150);
-        Item warmogsArmor = new ArmorImpl("Thornmail", ARMOR, 100);
-        startingLocation.addOption("Turn left", leftLocation);
-        startingLocation.addOption("Turn right", rightLocation);
-        rightLocation.addOption("Left way", leftLocation);
-        rightLocation.addOption("Back to start", startingLocation);
-        leftLocation.addOption("Right way", rightLocation);
-        leftLocation.addOption("Back to start", startingLocation);
-        leftLocation.addOption("Pick up B.F. Sword", bfsword);
-        rightLocation.addOption("Pick up pickaxe", pickaxe);
+        Item thornmail = new ArmorImpl("Thornmail", ARMOR, 100);
+
+        startingLocation.addOption("This forest seems definitely dangerous.", forest);
+        startingLocation.addOption("There is a castle nearby. Maybe I could sneak in?", castle);
+
+        castle.addOption("Go into tower.", tower);
+        castle.addOption("This is definitely not the right way.", startingLocation);
+        castle.addOption("Pick up healing potion.", healingPotion);
+
+        tower.addOption("Back to castle.", castle);
+        tower.addOption("Pick up pickaxe.", pickaxe);
+
+        forest.addOption("Maybe this is not the right way. I should go back to that castle I saw earlier.", castle);
+        forest.addOption("Get back!", startingLocation);
+        forest.addOption("A burrow! I wonder what's inside...", burrow);
+        forest.addOption("Pick up B.F. Sword.", bfsword);
+
+        burrow.addOption("What a beautiful armor.", thornmail);
 
         return startingLocation;
     }

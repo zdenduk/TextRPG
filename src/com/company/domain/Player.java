@@ -14,5 +14,5 @@ public interface Player {
 
     List getItems();
     void addItem(Item item);
-    void addItem(String name, int durability, int ad);
+    void addItem(String name, ItemType type);
 }

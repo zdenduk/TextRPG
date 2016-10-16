@@ -11,7 +11,7 @@ public interface Location {
 
     List<Item> getItems();
     void addItem(Item item);
-    void addItem(int durability,int ad,String name);
+    void addItem(String name, ItemType type);
     void removeItem(Item item);
     void removeOption(Option option);
 }
