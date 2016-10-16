@@ -3,12 +3,12 @@ import com.company.domain.ItemType;
 
 public class PotionImpl extends ItemImpl {
 
+    private int hpAdd;
+
     public PotionImpl(String name, ItemType type, int hpAdd) {
         super(name, type);
         this.hpAdd = hpAdd;
     }
-
-    private int hpAdd;
 
     public int getHealingVal() {
         return hpAdd;
