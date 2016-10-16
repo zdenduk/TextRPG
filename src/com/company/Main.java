@@ -25,7 +25,7 @@ public class Main {
 
     private static Location createGame() {
 
-        Location startingLocation = new LocationImpl("Where am I,");
+        Location startingLocation = new LocationImpl("Where am I?");
         Location forest = new LocationImpl("That's a really deep forest...");
         Location tower = new LocationImpl("I almost thought these stairs would never end.");
         Location castle = new LocationImpl("Whoa... This castle is huge.");
@@ -61,6 +61,7 @@ public class Main {
         System.out.println("Tell me your name");
         String name = sc.nextLine();
         Player player = new PlayerImpl(name, 100, location);
+        player.addItem(new WeaponImpl("Stick", WEAPON, 0));
         return player;
     }
 }

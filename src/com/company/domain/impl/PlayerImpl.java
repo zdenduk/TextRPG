@@ -45,7 +45,7 @@ public class PlayerImpl implements Player {
     }
 
     @Override
-    public List getItems() {
+    public List<Item> getItems() {
         return items;
     }
 

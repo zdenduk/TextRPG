@@ -1,8 +1,10 @@
 package com.company.ui;
 
+import com.company.domain.Item;
 import com.company.domain.Location;
 import com.company.domain.Option;
 import com.company.domain.Player;
+import com.sun.org.apache.xpath.internal.SourceTree;
 
 import java.util.Scanner;
 
@@ -15,6 +17,9 @@ public class GameUI {
         if (!location.getItems().isEmpty()) {
             location.getItems().forEach((item) -> System.out.println("There is " + item.getName()));
         }
+        if (endGame(location)) {
+            System.out.println("I escaped.");
+        }
         presentLocation(location, player);
         Location newLocation = DoMove(location, player);
         play(newLocation, player);
@@ -23,6 +28,7 @@ public class GameUI {
     private void presentLocation(Location location, Player player) {
         System.out.println(location.getText());
         int index = 1;
+        System.out.println("0) Inventory");
         for (Option option : location.getOptions()) {
             System.out.println(index + ") " + option.getText());
             index++;
@@ -33,8 +39,11 @@ public class GameUI {
         Scanner sc = new Scanner(System.in);
 
         int input = sc.nextInt() - 1;
-        System.out.println(input);
-        if (location.getOptions().get(input).getLocation() == null) {
+        if (input == -1) {
+            System.out.println("I have these following items:");
+            player.getItems().forEach((item) -> System.out.println(item.getName()));
+            return location;
+        } else if (location.getOptions().get(input).getLocation() == null) {
             pickItem(location, player, input);
             return location;
         } else {
@@ -47,8 +56,13 @@ public class GameUI {
         location.removeOption(location.getOptions().get(a));
     }
 
+    private boolean endGame(Location location) {
+        if (location.getOptions().isEmpty())
+            return true;
+        else
+            return false;
+
+    }
+
 }
 
-/*
-typy itemu
-*/

@@ -12,7 +12,7 @@ public interface Player {
     Location getCurrentLocation();
     void setCurrentLocation(Location location);
 
-    List getItems();
+    List<Item> getItems();
     void addItem(Item item);
     void addItem(String name, ItemType type);
 }
