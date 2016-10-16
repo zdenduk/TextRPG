@@ -78,7 +78,7 @@ public class GameUI {
             player.removeItem(player.getItems().get(input));
 
             PotionImpl potion = (PotionImpl) player.getItems().get(0);
-            player.setHp(potion.getHealingVal());/* TODO somehow explain this */
+            player.setHp(player.getHp() + potion.getHealingVal());/* TODO somehow explain this */
         }
     }
 }
