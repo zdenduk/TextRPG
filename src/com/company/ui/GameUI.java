@@ -56,7 +56,9 @@ public class GameUI {
             pickItem(location, player, input);
             return location;
         } else if (location.getOptions().get(input).getItem() == null && location.getOptions().get(input).getLocation() == null) {
-            location.getOptions().get(input).getArena().turn(player, location.getOptions().get(input).getArena().getEnemies().get(0));
+            for (Enemy enemy : location.getOptions().get(input).getArena().getEnemies()) {
+                location.getOptions().get(input).getArena().turn(player, location.getOptions().get(input).getArena().getEnemies().get(0));
+            }
             return location;
         } else {
             return location.getOptions().get(input).getLocation();
