@@ -22,17 +22,28 @@ public class ArenaImpl implements Arena {
         /* calculate hp loss for each participant in battle */
         int playerLoseHp = 0;
         int enemyLoseHp = 0;
-        /*if (critPlayer()) {
+
+        boolean playerCriticalStrike = critPlayer();
+        boolean enemyCriticalStrike = critEnemy();
+
+        if (playerCriticalStrike) {
             playerLoseHp = (int) Math.ceil((enemy.getWeapon().getAttackVal() / player.getArmor().getArmorVal()));
             enemyLoseHp = (int) (Math.ceil((player.getWeapon().getAttackVal()) / enemy.getArmor().getArmorVal())) * 2;
-        } else if (critEnemy()) {
+            System.out.println("Enemy did a critical strike.");
+        } else if (enemyCriticalStrike) {
             playerLoseHp = (int) (Math.ceil((enemy.getWeapon().getAttackVal() / player.getArmor().getArmorVal()))) * 2;
             enemyLoseHp = (int) Math.ceil((player.getWeapon().getAttackVal()) / enemy.getArmor().getArmorVal());
-        } else {}*/
-        playerLoseHp = (int) Math.ceil((enemy.getWeapon().getAttackVal() / player.getArmor().getArmorVal()));
-        enemyLoseHp = (int) Math.ceil((player.getWeapon().getAttackVal()) / enemy.getArmor().getArmorVal());
-
-
+            System.out.println("Yes! A critical strike!");
+        }
+        else if(playerCriticalStrike && enemyCriticalStrike){
+            playerLoseHp = (int) (Math.ceil((enemy.getWeapon().getAttackVal() / player.getArmor().getArmorVal()))) * 2;
+            enemyLoseHp = (int) (Math.ceil((player.getWeapon().getAttackVal()) / enemy.getArmor().getArmorVal()))*2;
+            System.out.println("We both managed to do a big amount of damage.");
+        }
+        else {
+            playerLoseHp = (int) Math.ceil((enemy.getWeapon().getAttackVal() / player.getArmor().getArmorVal()));
+            enemyLoseHp = (int) Math.ceil((player.getWeapon().getAttackVal()) / enemy.getArmor().getArmorVal());
+        }
         player.setHp(player.getHp() - playerLoseHp);
         enemy.setHp(enemy.getHp() - enemyLoseHp);
 
