@@ -5,13 +5,13 @@ import com.company.domain.ItemType;
 public class ArmorImpl extends ItemImpl {
 
     public ArmorImpl(String name, ItemType type, int armorNumber) {
-        super(name, type);
+        super(name, ItemType.ARMOR);
         this.armorNumber = armorNumber;
     }
 
     private int armorNumber;
 
-    public int getAttackDamage() {
+    public int getArmorVal() {
         return armorNumber;
     }
 

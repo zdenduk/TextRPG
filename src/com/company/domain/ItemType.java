@@ -1,9 +1,17 @@
 package com.company.domain;
 
-import com.company.domain.impl.ArmorImpl;
-import com.company.domain.impl.PotionImpl;
-import com.company.domain.impl.WeaponImpl;
+public enum ItemType {
+    POTION("potion"),
+    WEAPON("weapon"),
+    ARMOR("armor");
 
-public interface ItemType {
-    String getCaption();
+    private String caption;
+
+    private ItemType(String a) {
+        this.caption = a;
+    }
+
+    public String getCaption() {
+        return caption;
+    }
 }

@@ -1,11 +1,9 @@
 package com.company.tests;
 
 import com.company.domain.Item;
-import com.company.domain.Location;
-import com.company.domain.Player;
 import com.company.domain.impl.WeaponImpl;
 
-import static com.company.domain.impl.ItemTypeImpl.WEAPON;
+import static com.company.domain.ItemType.WEAPON;
 import static org.junit.Assert.*;
 
 public class ItemImplTest {

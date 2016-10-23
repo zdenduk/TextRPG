@@ -1,15 +1,13 @@
 package com.company.domain.impl;
 
-import com.company.domain.Item;
-import com.company.domain.Location;
-import com.company.domain.Option;
-import com.company.domain.Player;
+import com.company.domain.*;
 
 public class OptionImpl implements Option {
 
-    String text;
-    Location location;
-    Item item;
+    private String text;
+    private Location location;
+    private Item item;
+    private Arena arena;
 
     @Override
     public Item getItem() {
@@ -18,11 +16,11 @@ public class OptionImpl implements Option {
 
     Player player;
 
-    public OptionImpl(String text, Location location, Item item, Player player) {
+    public OptionImpl(String text, Location location, Item item, Arena arena) {
         this.text = text;
         this.location = location;
         this.item = item;
-        this.player = player;
+        this.arena = arena;
     }
 
     public OptionImpl(String text, Location location) {
@@ -35,6 +33,12 @@ public class OptionImpl implements Option {
         this.item = item;
     }
 
+    public OptionImpl(String text, Arena arena) {
+        this.text = text;
+        this.arena = arena;
+    }
+
+
     @Override
     public String getText() {
         return text;
@@ -45,5 +49,7 @@ public class OptionImpl implements Option {
         return location;
     }
 
-
+    public Arena getArena() {
+        return arena;
+    }
 }

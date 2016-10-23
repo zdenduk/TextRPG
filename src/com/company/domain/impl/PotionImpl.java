@@ -1,4 +1,5 @@
 package com.company.domain.impl;
+
 import com.company.domain.ItemType;
 
 public class PotionImpl extends ItemImpl {
@@ -6,7 +7,7 @@ public class PotionImpl extends ItemImpl {
     private int hpAdd;
 
     public PotionImpl(String name, ItemType type, int hpAdd) {
-        super(name, type);
+        super(name, ItemType.POTION);
         this.hpAdd = hpAdd;
     }
 

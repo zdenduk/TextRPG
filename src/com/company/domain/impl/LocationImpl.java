@@ -1,9 +1,6 @@
 package com.company.domain.impl;
 
-import com.company.domain.Item;
-import com.company.domain.ItemType;
-import com.company.domain.Location;
-import com.company.domain.Option;
+import com.company.domain.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,5 +62,10 @@ public class LocationImpl implements Location {
     @Override
     public void addOption(String text, Item item) {
         options.add(new OptionImpl(text, item));
+    }
+
+    @Override
+    public void addOption(String text, Arena arena) {
+        options.add(new OptionImpl(text, arena));
     }
 }

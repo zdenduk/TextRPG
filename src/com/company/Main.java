@@ -1,18 +1,14 @@
 package com.company;
 
-import com.company.domain.Item;
-import com.company.domain.ItemType;
-import com.company.domain.Location;
-import com.company.domain.Player;
+import com.company.domain.*;
 import com.company.domain.impl.*;
 import com.company.ui.GameUI;
-import com.sun.org.glassfish.external.probe.provider.PluginPoint;
 
 import java.util.Scanner;
 
-import static com.company.domain.impl.ItemTypeImpl.ARMOR;
-import static com.company.domain.impl.ItemTypeImpl.POTION;
-import static com.company.domain.impl.ItemTypeImpl.WEAPON;
+import static com.company.domain.ItemType.ARMOR;
+import static com.company.domain.ItemType.POTION;
+import static com.company.domain.ItemType.WEAPON;
 
 public class Main {
 
@@ -31,6 +27,14 @@ public class Main {
         Location castle = new LocationImpl("Whoa... This castle is huge.");
         Location burrow = new LocationImpl("Hopefully there won't be any animals.");
 
+        Arena arena = new ArenaImpl();
+
+        Enemy spider = new EnemyImpl("Spider", 50, arena);
+        spider.setArmor(new ArmorImpl("skin", ARMOR, 25));
+        spider.setWeapon(new WeaponImpl("claws", WEAPON, 10));
+
+        arena.addEnemy(spider);
+
         Item bfsword = new WeaponImpl("B.F. Sword", WEAPON, 50);
         Item pickaxe = new WeaponImpl("Pickaxe", WEAPON, 25);
         Item healingPotion = new PotionImpl("Healing Potion", POTION, 150);
@@ -42,6 +46,7 @@ public class Main {
         castle.addOption("Go into tower.", tower);
         castle.addOption("This is definitely not the right way.", startingLocation);
         castle.addOption("Pick up healing potion.", healingPotion);
+        castle.addOption("Go fight into this arena", arena);
 
         tower.addOption("Back to castle.", castle);
         tower.addOption("Pick up pickaxe.", pickaxe);
@@ -61,7 +66,8 @@ public class Main {
         System.out.println("Tell me your name");
         String name = sc.nextLine();
         Player player = new PlayerImpl(name, 100, location);
-        player.addItem(new WeaponImpl("Stick", WEAPON, 0));
+        player.setWeapon(new WeaponImpl("Stick", WEAPON, 10));
+        player.setArmor(new ArmorImpl("Cloth armor", ARMOR, 10));
         return player;
     }
 }

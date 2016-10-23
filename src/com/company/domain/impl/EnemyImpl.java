@@ -5,23 +5,24 @@ import com.company.domain.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PlayerImpl implements Player {
+public class EnemyImpl implements Enemy {
+
 
     private String name;
     private int hp;
     private List<Item> items;
-    private Location location;
+    private Arena arena;
     private List<Option> options;
 
     WeaponImpl weapon;
     ArmorImpl armor;
 
-    public PlayerImpl(String name, int hp, Location location) {
+    public EnemyImpl(String name, int hp, Arena arena) {
         this.name = name;
         this.hp = hp;
         this.options = new ArrayList<>();
         this.items = new ArrayList<>();
-        this.location = location;
+        this.arena = arena;
     }
 
     @Override
@@ -57,16 +58,6 @@ public class PlayerImpl implements Player {
     @Override
     public void addItem(String name, ItemType type) {
         addItem(new ItemImpl(name, type));
-    }
-
-    @Override
-    public Location getCurrentLocation() {
-        return location;
-    }
-
-    @Override
-    public void setCurrentLocation(Location location) {
-        this.location = location;
     }
 
     @Override

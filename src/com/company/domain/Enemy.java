@@ -5,7 +5,8 @@ import com.company.domain.impl.WeaponImpl;
 
 import java.util.List;
 
-public interface Player {
+public interface Enemy {
+
     int getHp();
 
     String getName();
@@ -13,10 +14,6 @@ public interface Player {
     WeaponImpl getWeapon();
 
     ArmorImpl getArmor();
-
-    Location getCurrentLocation();
-
-    void setCurrentLocation(Location location);
 
     List<Item> getItems();
 
