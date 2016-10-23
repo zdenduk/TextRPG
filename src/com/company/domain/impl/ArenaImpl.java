@@ -34,13 +34,11 @@ public class ArenaImpl implements Arena {
             playerLoseHp = (int) (Math.ceil((enemy.getWeapon().getAttackVal() / player.getArmor().getArmorVal()))) * 2;
             enemyLoseHp = (int) Math.ceil((player.getWeapon().getAttackVal()) / enemy.getArmor().getArmorVal());
             System.out.println("Yes! A critical strike!");
-        }
-        else if(playerCriticalStrike && enemyCriticalStrike){
+        } else if (playerCriticalStrike && enemyCriticalStrike) {
             playerLoseHp = (int) (Math.ceil((enemy.getWeapon().getAttackVal() / player.getArmor().getArmorVal()))) * 2;
-            enemyLoseHp = (int) (Math.ceil((player.getWeapon().getAttackVal()) / enemy.getArmor().getArmorVal()))*2;
+            enemyLoseHp = (int) (Math.ceil((player.getWeapon().getAttackVal()) / enemy.getArmor().getArmorVal())) * 2;
             System.out.println("We both managed to do a big amount of damage.");
-        }
-        else {
+        } else {
             playerLoseHp = (int) Math.ceil((enemy.getWeapon().getAttackVal() / player.getArmor().getArmorVal()));
             enemyLoseHp = (int) Math.ceil((player.getWeapon().getAttackVal()) / enemy.getArmor().getArmorVal());
         }

@@ -14,8 +14,6 @@ public class OptionImpl implements Option {
         return item;
     }
 
-    Player player;
-
     public OptionImpl(String text, Location location, Item item, Arena arena) {
         this.text = text;
         this.location = location;

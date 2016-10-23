@@ -93,13 +93,11 @@ public class GameUI {
             player.setHp(player.getHp() + potion.getHealingVal());
             System.out.println("My current HP is " + player.getHp());
             player.removeItem(player.getItems().get(input));
-        }
-        else if (player.getItems().get(input).getItemType().getCaption().equals("weapon")) {
+        } else if (player.getItems().get(input).getItemType().getCaption().equals("weapon")) {
             WeaponImpl weapon = (WeaponImpl) player.getItems().get(input);
             player.setWeapon(weapon);
-            System.out.println("My "+ weapon.getName() + " is ready.");
-        }
-        else if (player.getItems().get(input).getItemType().getCaption().equals("armor")) {
+            System.out.println("My " + weapon.getName() + " is ready.");
+        } else if (player.getItems().get(input).getItemType().getCaption().equals("armor")) {
             ArmorImpl armor = (ArmorImpl) player.getItems().get(input);
             player.setArmor(armor);
             System.out.println("I have " + armor.getName() + " put on.");
